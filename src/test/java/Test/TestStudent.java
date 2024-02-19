@@ -132,6 +132,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         /*feedTasksPage.sliderButtonMoveToElement();
         feedTasksPage.continueButtonClick();
         feedTasksPage.secretKeyEmotionsSendKeys("123");
@@ -171,6 +172,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -195,6 +197,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -218,6 +221,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -241,6 +245,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -267,6 +272,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -296,6 +302,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -324,6 +331,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -352,6 +360,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -491,7 +500,7 @@ public class TestStudent extends BaseTestStudent {
         profileStudentPage.changeSecurutyKeySendKeys("12345");
         profileStudentPage.saveButtonClick();
         Assert.assertTrue(profileStudentPage.notificationIsDisplayed());
-        Assert.assertEquals(profileStudentPage.notificationGetText(), "Your secret key is saved!");
+        Assert.assertEquals(profileStudentPage.notificationGetText(), "Your secret key is saved");
         Thread.sleep(3000);
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
@@ -550,7 +559,7 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
         Assert.assertEquals("Private note has been saved", feedTasksPage.notificationStudentGetText());
         feedTasksPage.feedbackCloseButtonClick();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();

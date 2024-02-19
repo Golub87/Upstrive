@@ -43,7 +43,7 @@ public class ProfileStudentPage extends BaseTestStudent {
     @FindBy (xpath = "//body/div[@id='root']/div[@id='home']/div[@class='authenticated-section']/div[@id='profileId']/div[@class='profile-right']/div[@id='profileid']/div[2]/div[2]/div[1]")
     WebElement reflectionFeedback;
 
-    @FindBy (xpath = "//p[normalize-space()='Delete Note']")
+    @FindBy (xpath = "//p[normalize-space()='DELETE NOTE']")
     WebElement deleteNote;
 
     @FindBy (xpath = "//div[@class='confirm-ok-button']")

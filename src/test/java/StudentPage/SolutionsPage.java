@@ -28,7 +28,7 @@ public class SolutionsPage extends BaseTestStudent {
 
     }
 
-    @FindBy (xpath = "//div[contains(text(),'Connect with the Counselor')]")
+    @FindBy (xpath = "//div[contains(text(),'Connect with counselor')]")
     WebElement connectWithTheCounselorButton;
 
     public void connectWithTheCounselorButtonClick () {

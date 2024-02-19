@@ -250,11 +250,17 @@ public class FeedTasksPage extends BaseTestStudent {
     @FindBy (xpath = "//div[@class='student-feedback-close-button']")
     WebElement feedbackCloseButton;
 
+    @FindBy (xpath = "//div[@class='notify-close-button']")
+    WebElement notificationCloseButton;
+
 
     public void feedbackCloseButtonClick () {
         wdWait.until(ExpectedConditions.visibilityOf(feedbackCloseButton)).click();
     }
 
+    public void notificationCloseButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(notificationCloseButton)).click();
+    }
 
     public void buttonSolutionClick () {
         wdWait.until(ExpectedConditions.visibilityOf(buttonSolutions)).click();

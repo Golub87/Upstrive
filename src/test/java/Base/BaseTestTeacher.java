@@ -2,7 +2,6 @@ package Base;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -59,7 +58,6 @@ public class BaseTestTeacher {
     public void setUp () throws IOException {
         Properties prop = new Properties();
         prop.load(new FileInputStream("E:\\UpStriveGMBH\\src\\main\\resources\\testData.properties"));
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wdWait = new WebDriverWait(driver, Duration.ofSeconds(15));
         actions = new Actions(driver);

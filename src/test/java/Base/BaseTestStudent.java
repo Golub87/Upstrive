@@ -2,7 +2,6 @@ package Base;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -56,7 +55,6 @@ public class BaseTestStudent {
     }
     @BeforeMethod
     public void setUp (){
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wdWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
