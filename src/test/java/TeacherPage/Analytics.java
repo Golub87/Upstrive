@@ -25,7 +25,7 @@ public class Analytics extends BaseTestTeacher {
     WebElement createReport;
 
 
-    @FindBy (xpath = "//input[@placeholder='Search report']")
+    @FindBy (xpath = "//input[@placeholder='Search']")
     WebElement searchReportField;
 
     @FindBy (xpath = "//div[@class='flex-1 text-[#413F5E] font-bold text-[14px]']")

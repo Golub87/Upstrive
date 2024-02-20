@@ -719,7 +719,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         settingsPage.retypePasswordSendKeys("Golub1987!");
         settingsPage.saveButtonChangePasswordClick();
         Assert.assertTrue(settingsPage.notificationsIsDisplayed());
-        Assert.assertEquals(settingsPage.notificationsGetText(), "User is updated!");
+        Assert.assertEquals(settingsPage.notificationsGetText(), "User is updated");
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();
