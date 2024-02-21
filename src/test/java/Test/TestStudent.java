@@ -130,6 +130,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.wellBeingIconClick();
         feedTasksPage.textEmotionSendKeys("ANGRY!!!!");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -158,6 +160,8 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
+    //div[@class='notify-text-style']
+
 
     @Test (priority = 4)
     public void studentNikolaGolubovicEmotionHappy() throws InterruptedException {
@@ -170,6 +174,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.friendsIconClick();
         feedTasksPage.textEmotionSendKeys("I am very happy because I love Selenium Java!!!!!");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -195,6 +201,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.friendsIconClick();
         feedTasksPage.textEmotionSendKeys("FEELING GOOD!!!!");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -219,6 +227,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.friendsIconClick();
         feedTasksPage.textEmotionSendKeys("Feeling calm about myself and my friends");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -243,6 +253,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.mySelfIconClick();
         feedTasksPage.textEmotionSendKeys(":D :D :D :D");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -270,6 +282,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.mySelfIconClick();
         feedTasksPage.textEmotionSendKeys("I am worried about exams :(");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -300,6 +314,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.healthIconClick();
         feedTasksPage.textEmotionSendKeys("Today is a good day!!! :D");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -329,6 +345,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.sleepIconClick();
         feedTasksPage.textEmotionSendKeys("I am ill!!!!");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -358,6 +376,8 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.sleepIconClick();
         feedTasksPage.textEmotionSendKeys("Stress day for me!!");
         feedTasksPage.buttonSubmitEmotionClick();
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
         feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
@@ -795,6 +815,7 @@ public class TestStudent extends BaseTestStudent {
 
 
     }
+
 
 
 
