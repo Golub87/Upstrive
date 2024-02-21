@@ -71,7 +71,6 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         classroomPage = new ClassroomPage();
         wellbeingTrackerPage = new WellbeingTrackerPage();
         analytics = new Analytics();
-        analytics = new Analytics();
         listeners = new Listeners();
         dataReader = new DataReader();
         extentReporter = new ExtentReporter();

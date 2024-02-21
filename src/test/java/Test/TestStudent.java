@@ -18,7 +18,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 public class TestStudent extends BaseTestStudent {
@@ -680,7 +679,7 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonChatClick();
         chatStudentPage.searchFieldInChatSendKeys();
         Thread.sleep(2000);
-        Assert.assertEquals(chatStudentPage.searchResultGetText(), "Betty Fiedler");
+        chatStudentPage.assertSearch();
         Thread.sleep(2000);
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
@@ -732,7 +731,7 @@ public class TestStudent extends BaseTestStudent {
         solutionsPage.searchFieldSendKeys();
         Thread.sleep(2000);
         List<WebElement> solutionsList = driver.findElements(By.xpath("//div[@class='issue-topic-title']"));
-        List<WebElement> filteredList = solutionsList.stream().filter(student->student.getText().contains("hate")).collect(Collectors.toList());
+        List<WebElement> filteredList = solutionsList.stream().filter(student->student.getText().contains("hate")).toList();
         Assert.assertEquals(solutionsList.size(), filteredList.size());
 
 

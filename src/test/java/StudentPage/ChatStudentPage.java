@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
+import java.util.List;
 
 public class ChatStudentPage extends BaseTestStudent {
     public ChatStudentPage () {
@@ -25,7 +28,15 @@ WebElement searchFieldInChat;
 @FindBy (xpath = "//div[@class='chat-name-text']")
 WebElement searchResult;
 
+@FindBy (xpath = "//div[@class='chat-name-text']")
+List<WebElement> messengers;
 
+
+public void assertSearch () {
+    List<WebElement> filteredMessengers = messengers.stream().filter(messenger->messenger.getText().contains("Betty")).toList();
+    Assert.assertEquals(messengers.size(), filteredMessengers.size());
+
+}
 
 public String searchResultGetText () {
     wdWait.until(ExpectedConditions.visibilityOf(searchResult));
