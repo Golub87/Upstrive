@@ -81,7 +81,7 @@ public class TestStudent extends BaseTestStudent {
         webmailLoginPage.emailSendKeys("us_test_s2@we-deliver.net");
         webmailLoginPage.passwordSendKeys("(v=IlNv.J{3;");
         webmailLoginPage.loginButtonClick();
-        Thread.sleep(65000);
+        Thread.sleep(55000);
         driver.navigate().refresh();
         Thread.sleep(15000);
         driver.navigate().refresh();

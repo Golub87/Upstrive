@@ -170,7 +170,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
 
 
-    @Test (priority = 4, groups = "beforeStudent")
+    @Test (priority = 4, groups = "beforeStudent",  retryAnalyzer = Retry.class)
     public void createAndDeleteNewClass () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");

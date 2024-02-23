@@ -75,9 +75,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
 
 
-
-
-    @Test (priority = 2, groups = "afterStudent")
+    @Test (priority = 1, groups = "afterStudent")
     public void sendMessageFromClassroomToNG () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -102,7 +100,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 3, groups = "afterStudent")
+    @Test (priority = 2, groups = "afterStudent")
 
     public void assignActionTeacher () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -131,7 +129,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 4, groups = "afterStudent")
+    @Test (priority = 3, groups = "afterStudent")
     public void assignActionFromClassroomStudentTester() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -160,7 +158,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 5, groups = "afterStudent")
+    @Test (priority = 4, groups = "afterStudent")
     public void iWillTakeActionFromClassNemanjaP () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -187,7 +185,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
 
 
-    @Test (priority = 6, groups = "afterStudent")
+    @Test (priority = 5, groups = "afterStudent")
 
     public void deleteContentTeacher() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -212,7 +210,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 7, groups = "afterStudent")
+    @Test (priority = 6, groups = "afterStudent")
 
     public void deleteFeed () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -237,7 +235,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 8, groups = "afterStudent")
+    @Test (priority = 7, groups = "afterStudent")
     public void checkEmotionFilterInClassroom () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -263,7 +261,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 9, groups = "afterStudent")
+    @Test (priority = 8, groups = "afterStudent")
     public void checkSearchFieldInClassroom () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
