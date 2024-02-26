@@ -131,10 +131,10 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.buttonSubmitEmotionClick();
         Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
         Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your emotion is confirmed");
-        feedTasksPage.buttonXEmotionClick();
+        //feedTasksPage.buttonXEmotionClick();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
-        /*feedTasksPage.sliderButtonMoveToElement();
+        feedTasksPage.sliderButtonMoveToElement();
         feedTasksPage.continueButtonClick();
         feedTasksPage.secretKeyEmotionsSendKeys("123");
         feedTasksPage.saveSecretKeyClick();
@@ -142,12 +142,14 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals("Secret key has been saved", feedTasksPage.notificationStudentGetText());
         feedTasksPage.personalNotesSendKeys("Selenium automation testing");
         feedTasksPage.improveThingsInputFieldSendKeys("Test");
-        //Thread.sleep(2000);
         feedTasksPage.emotionElementScroll();
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,500)");
-        Thread.sleep(2000);
+        feedTasksPage.suggestionClick();
         feedTasksPage.continue1ButtonClick();
-        feedTasksPage.todayNotesSendKeys("Test");*/
+        feedTasksPage.todayNotesSendKeys("Test");
+        feedTasksPage.continue2();
+        Thread.sleep(1000);
+        feedTasksPage.notificationCloseButton();
+        Thread.sleep(2000);
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -158,7 +160,7 @@ public class TestStudent extends BaseTestStudent {
 
 
     }
-    //TODO finish whole process showing emotion
+
 
 
 

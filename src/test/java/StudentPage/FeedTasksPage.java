@@ -130,10 +130,10 @@ public class FeedTasksPage extends BaseTestStudent {
     @FindBy (xpath = "//input[@placeholder='Name of today note']")
     WebElement todayNotes;
 
-    @FindBy (xpath= "//div[@class='how-details-container']")
+    @FindBy (xpath= "//div[@class='ReactModal__Content ReactModal__Content--after-open student-feedback-no-scroll']")
     WebElement emotionElement;
 
-    @FindBy (xpath= "//p[@class='how-are-you-save-text']")
+    @FindBy (xpath= "//div[@class='how-compare-details-continue']")
     WebElement continue1Button;
 
     @FindBy (xpath = "//*[@id=\"my-header\"]/div/div[3]/a/div[2]")
@@ -253,6 +253,21 @@ public class FeedTasksPage extends BaseTestStudent {
     @FindBy (xpath = "//div[@class='notify-close-button']")
     WebElement notificationCloseButton;
 
+    @FindBy (xpath = "//div[@class='how-suggestion-item']")
+    List<WebElement> suggestions;
+
+
+    @FindBy (xpath = "//button[@class='how-are-you-save-button']")
+    WebElement continue2;
+
+    public void continue2 (){
+        wdWait.until(ExpectedConditions.visibilityOf(continue2)).click();
+    }
+    public void suggestionClick () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(suggestions));
+        suggestions.get(0).click();
+        suggestions.get(1).click();
+    }
 
     public void feedbackCloseButtonClick () {
         wdWait.until(ExpectedConditions.visibilityOf(feedbackCloseButton)).click();
