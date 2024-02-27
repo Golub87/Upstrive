@@ -133,7 +133,7 @@ public class FeedTasksPage extends BaseTestStudent {
     @FindBy (xpath= "//div[@class='ReactModal__Content ReactModal__Content--after-open student-feedback-no-scroll']")
     WebElement emotionElement;
 
-    @FindBy (xpath= "//div[@class='how-compare-details-continue']")
+    @FindBy (xpath= "//button[@class='how-are-you-save-button']")
     WebElement continue1Button;
 
     @FindBy (xpath = "//*[@id=\"my-header\"]/div/div[3]/a/div[2]")

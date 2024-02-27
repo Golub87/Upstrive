@@ -144,12 +144,12 @@ public class TestStudent extends BaseTestStudent {
         feedTasksPage.improveThingsInputFieldSendKeys("Test");
         feedTasksPage.emotionElementScroll();
         feedTasksPage.suggestionClick();
-        feedTasksPage.continue1ButtonClick();
+        feedTasksPage.continueButtonClick();
         feedTasksPage.todayNotesSendKeys("Test");
         feedTasksPage.continue2();
         Thread.sleep(1000);
         feedTasksPage.notificationCloseButton();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         feedTasksPage.profileClick();
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
@@ -618,7 +618,7 @@ public class TestStudent extends BaseTestStudent {
          }
         Thread.sleep(2000);
         feedTasksPage.profileClick();
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
+        //((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         profileStudentPage.logoutButtonClick();
         profileStudentPage.confirmLogoutClick();
         String actualUrl = driver.getCurrentUrl();

@@ -11,7 +11,7 @@ public class ProfileStudentPage extends BaseTestStudent {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (xpath = "//*[@id=\"profileId\"]/div[1]/div/div/div[3]")
+    @FindBy (xpath = "//button[@class='logout-btn']")
     WebElement logoutButton;
 
     @FindBy (xpath = "/html/body/div[7]/div/div/div[2]/div/div[2]/div/div[2]")
