@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ReadyToGoContentPage extends BaseTestTeacher {
     public ReadyToGoContentPage() {
@@ -98,7 +97,7 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
     }
 
     public void assertSearch () {
-        List<WebElement> filteredProgramTitles = programsTitles.stream().filter(program->program.getText().contains("Creating")).collect(Collectors.toList());
+        List<WebElement> filteredProgramTitles = programsTitles.stream().filter(program->program.getText().contains("Creating")).toList();
         Assert.assertEquals(programsTitles.size(), filteredProgramTitles.size());
     }
 

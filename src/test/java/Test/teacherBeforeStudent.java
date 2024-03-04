@@ -1813,7 +1813,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 58, groups = "beforeStudent")
+    @Test (priority = 58, groups = "beforeStudent", retryAnalyzer = Retry.class)
     public void deleteUploadedData () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -1831,7 +1831,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
 
 
-    @Test (priority = 59)
+    @Test (priority = 59, retryAnalyzer = Retry.class)
     public void downloadData () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -1850,7 +1850,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 60)
+    @Test (priority = 60, retryAnalyzer = Retry.class)
     public void downloadTemplateFile () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -1863,14 +1863,12 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Thread.sleep(4000);
         File templateFile = new File ("C:\\Users\\nikol\\Downloads\\School_Info_template.xlsx");
         if (templateFile.exists())
-        {System.out.println("File downloaded");
-
-        }
+        {System.out.println("File downloaded");}
 
     }
 
 
-    @Test (priority = 61)
+    @Test (priority = 61, retryAnalyzer = Retry.class)
     public void checkSearchInReadyToGo () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -1887,7 +1885,38 @@ public class teacherBeforeStudent extends BaseTestTeacher {
     }
 
 
+    @Test (priority = 62, retryAnalyzer = Retry.class)
+    public void searchInCreateWellbeingProfile () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.addButton();
+        wellbeingTrackerPage.searchCreateWellProfile();
+        wellbeingTrackerPage.assertSearch();
 
+
+    }
+
+    @Test (priority = 63, retryAnalyzer = Retry.class)
+    public void exportDataInWellbeingTracker () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        wellbeingTrackerPage.exportData();
+        Thread.sleep(3000);
+        File templateFile = new File ("C:\\Users\\nikol\\Downloads\\Counseling report.pdf");
+        if (templateFile.exists())
+        {System.out.println("File downloaded");}
+
+
+    }
 
 
 
