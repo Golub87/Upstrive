@@ -3,6 +3,7 @@ package Test;
 import Base.BaseTestTeacher;
 import Base.DataReader;
 import Base.ExtentReporter;
+import Base.Retry;
 import TeacherPage.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -185,7 +186,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
 
 
-    @Test (priority = 5, groups = "afterStudent")
+    @Test (priority = 5, groups = "afterStudent", retryAnalyzer = Retry.class)
 
     public void deleteContentTeacher() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -210,7 +211,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 6, groups = "afterStudent")
+    @Test (priority = 6, groups = "afterStudent", retryAnalyzer = Retry.class)
 
     public void deleteFeed () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -235,7 +236,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 7, groups = "afterStudent")
+    @Test (priority = 7, groups = "afterStudent", retryAnalyzer = Retry.class)
     public void checkEmotionFilterInClassroom () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -261,7 +262,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 8, groups = "afterStudent")
+    @Test (priority = 8, groups = "afterStudent", retryAnalyzer = Retry.class)
     public void checkSearchFieldInClassroom () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");

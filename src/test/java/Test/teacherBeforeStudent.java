@@ -1792,7 +1792,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Assert.assertEquals(expectedUrl1, actualUrl1);
     }
 
-    @Test (priority = 57, groups = "beforeStudent")
+    @Test (priority = 57, groups = "beforeStudent", retryAnalyzer = Retry.class)
     public void uploadUserData () throws InterruptedException, IOException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");

@@ -3,6 +3,7 @@ package Test;
 import Base.BaseTestStudent;
 import Base.DataReader;
 import Base.ExtentReporter;
+import Base.Retry;
 import StudentPage.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -592,7 +593,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 21)
+    @Test (priority = 21, retryAnalyzer = Retry.class)
     public void deletePrivateNotes () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
