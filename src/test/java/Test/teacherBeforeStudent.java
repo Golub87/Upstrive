@@ -1809,6 +1809,13 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Thread.sleep(1000);
         userManagementPage.uploadDataClick();
         Assert.assertEquals(userManagementPage.notificationUploadedDataGetText(), "File has been uploaded. Data will be updated within 24 hours");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
 
     }
@@ -1825,7 +1832,13 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         userManagementPage.deleteUploadedDataClick();
         userManagementPage.confirmDeleteTeacherClick();
         Assert.assertEquals(userManagementPage.notificationUploadedDataGetText(), "File has been removed");
-
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
     }
 
 
@@ -1844,9 +1857,14 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Thread.sleep(4000);
         File file = new File ("C:\\Users\\nikol\\Downloads\\users-data-f03bc726-c9c8-11ed-bd21-02c0080cd71c.xlsx");
         if (file.exists())
-        {System.out.println("File downloaded");
-
-        }
+        {System.out.println("File downloaded");}
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
     }
 
@@ -1864,6 +1882,13 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         File templateFile = new File ("C:\\Users\\nikol\\Downloads\\School_Info_template.xlsx");
         if (templateFile.exists())
         {System.out.println("File downloaded");}
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
     }
 
@@ -1881,6 +1906,13 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Thread.sleep(1000);
         readyToGoContentPage.searchPrograms();
         readyToGoContentPage.assertSearch();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
     }
 
@@ -1896,6 +1928,13 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         wellbeingTrackerPage.addButton();
         wellbeingTrackerPage.searchCreateWellProfile();
         wellbeingTrackerPage.assertSearch();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
 
     }
@@ -1909,11 +1948,19 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         Thread.sleep(1000);
         dashboardPage.wellBeingTrackerClick();
         wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
         wellbeingTrackerPage.exportData();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         File templateFile = new File ("C:\\Users\\nikol\\Downloads\\Counseling report.pdf");
         if (templateFile.exists())
         {System.out.println("File downloaded");}
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
 
     }
