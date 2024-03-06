@@ -49,10 +49,141 @@ public class WellbeingTrackerPage extends BaseTestTeacher {
     @FindBy (xpath = "//div[@class='well-tracker-card']")
     List<WebElement> wellbeingProfileCards;
 
+    @FindBy (xpath = "//div[contains(text(),'Assign action')]")
+    WebElement assignAction;
+
+    @FindBy (xpath = "//p[normalize-space()='Select teacher']")
+    WebElement selectTeacher;
+
+    @FindBy (xpath = "//input[contains(@placeholder,'Search')]")
+    WebElement search;
+
+    @FindBy (xpath = "//div[@class='feedback-teacher-item']")
+    List<WebElement> teachers;
+
+    @FindBy (xpath = "//textarea[contains(@placeholder,'Type an action')]")
+    WebElement inputFieldAssignAction;
+
+    @FindBy (xpath = "//p[normalize-space()='Submit']")
+    WebElement submitAction;
+
+    @FindBy (xpath = "//div[@class='animate-enter max-w-md p-4 w-full rounded-xl pointer-events-auto flex']")
+    WebElement notification;
+
+    @FindBy (xpath = "//textarea[@placeholder='Enter your note here']")
+    WebElement noteInputField;
+
+    @FindBy (xpath = "//div[contains(text(),'Add note')]")
+    WebElement addNote;
+
+    @FindBy (xpath = "//div[@class='feedback-modal-icon']")
+    WebElement xButton;
+
+    @FindBy (xpath = "//div[@class='wellprofile-bell']")
+    WebElement addReminderButton;
+
+    @FindBy (xpath = "//div[@class='reminder-submit']")
+    WebElement doneButton;
+
+    @FindBy (xpath = "//div[@data-tip='Edit reminder']")
+    WebElement editReminder;
+
+    @FindBy (xpath = "//div[@data-tip='Remove reminder']")
+    WebElement removeReminder;
+
+
+    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    WebElement confirmRemoveReminder;
+
+
+
+    public void confirmRemoveReminder () {
+        wdWait.until(ExpectedConditions.visibilityOf(confirmRemoveReminder)).click();
+    }
+
+    public void removeReminder () {
+        wdWait.until(ExpectedConditions.visibilityOf(removeReminder)).click();
+    }
+
+    public void editReminder () {
+        wdWait.until(ExpectedConditions.visibilityOf(editReminder)).click();
+    }
+
+    public void editNoteReminder () {
+        wdWait.until(ExpectedConditions.visibilityOf(noteInputField));
+        noteInputField.sendKeys(" AUTOMATION EDIT");
+    }
+    public void noteReminder () {
+        wdWait.until(ExpectedConditions.visibilityOf(noteInputField)).clear();
+        noteInputField.sendKeys("Automation add reminder");
+    }
+    public void doneButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(doneButton)).click();
+    }
+
+    public void addReminderButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(addReminderButton)).click();
+    }
+
+    public void xButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(xButton)).click();
+    }
+
+
+
+    public void addNoteButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(addNote)).click();
+    }
+
+    public void noteInputField () {
+        wdWait.until(ExpectedConditions.visibilityOf(noteInputField)).clear();
+        noteInputField.sendKeys("Automation add note");
+    }
+
+    public String notificationGetText () {
+        wdWait.until(ExpectedConditions.visibilityOf(notification));
+        return notification.getText();
+    }
+    public boolean notificationIsDisplayed () {
+        wdWait.until(ExpectedConditions.visibilityOf(notification));
+        return notification.isDisplayed();
+    }
+
+    public void assignAction () {
+        wdWait.until(ExpectedConditions.visibilityOf(assignAction)).click();
+    }
+
+    public void selectTeacher () {
+        wdWait.until(ExpectedConditions.visibilityOf(selectTeacher)).click();
+
+    }
+
+    public void searchTeacher () throws InterruptedException {
+        wdWait.until(ExpectedConditions.visibilityOf(search)).clear();
+        search.sendKeys("teacher");
+        Thread.sleep(2000);
+    }
+
+    public void teacherTester (){
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(teachers));
+        teachers.get(0).click();
+    }
+
+    public void inputField () {
+        wdWait.until(ExpectedConditions.visibilityOf(inputFieldAssignAction)).clear();
+        inputFieldAssignAction.sendKeys("Assign action from Wellbeing Tracker");
+
+    }
+
+    public void submitAction () {
+        wdWait.until(ExpectedConditions.visibilityOf(submitAction)).click();
+    }
+
+
 
     public void profileClick () {
         wdWait.until(ExpectedConditions.visibilityOfAllElements(wellbeingProfileCards));
-        wellbeingProfileCards.get(1).click();
+        wellbeingProfileCards.get(0).click();
 
     }
     public void exportData () {

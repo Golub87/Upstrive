@@ -1928,6 +1928,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         wellbeingTrackerPage.addButton();
         wellbeingTrackerPage.searchCreateWellProfile();
         wellbeingTrackerPage.assertSearch();
+        wellbeingTrackerPage.xButton();
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();

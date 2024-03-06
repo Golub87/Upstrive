@@ -269,9 +269,6 @@ public class teacherAfterStudent extends BaseTestTeacher {
         loginPageTeacher.loginButtonClick();
         Thread.sleep(1000);
         dashboardPage.myClassroomClick();
-        int leftPickerMultipleClick = 3;
-        //for (int i = 0; i<leftPickerMultipleClick; i++){
-           // classroomPage.leftButtonDayPickerClick();}
         Thread.sleep(1000);
         classroomPage.searchInClassroomSendKeys();
         Thread.sleep(2000);
@@ -288,6 +285,155 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
 
     }
+
+
+    @Test (priority = 9, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void assignActionFromWellbeingTracker () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
+        wellbeingTrackerPage.assignAction();
+        wellbeingTrackerPage.selectTeacher();
+        wellbeingTrackerPage.searchTeacher();
+        wellbeingTrackerPage.teacherTester();
+        wellbeingTrackerPage.inputField();
+        wellbeingTrackerPage.submitAction();
+        Thread.sleep(1000);
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Assign action success");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+
+    }
+
+    @Test (priority = 10, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void addNoteFromWellbeingTracker () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
+        wellbeingTrackerPage.noteInputField();
+        wellbeingTrackerPage.addNoteButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Note is created");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+
+    @Test (priority = 11, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void addReminder () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
+        wellbeingTrackerPage.noteReminder();
+        wellbeingTrackerPage.addReminderButton();
+        wellbeingTrackerPage.doneButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Note is created");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+
+    }
+
+    @Test (priority = 12, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void editNoteReminder () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
+        wellbeingTrackerPage.editReminder();
+        wellbeingTrackerPage.editNoteReminder();
+        wellbeingTrackerPage.addReminderButton();
+        wellbeingTrackerPage.doneButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Reminder has been changed!");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+
+    @Test (priority = 13, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void deleteNoteReminder () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.wellBeingTrackerClick();
+        wellbeingTrackerPage.profileClick();
+        Thread.sleep(2000);
+        wellbeingTrackerPage.editReminder();
+        wellbeingTrackerPage.removeReminder();
+        wellbeingTrackerPage.confirmRemoveReminder();
+        Thread.sleep(1000);
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Reminder has been deleted!");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
