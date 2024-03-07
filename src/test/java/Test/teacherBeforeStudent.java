@@ -1321,7 +1321,6 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
 
-
     }
 
     @Test (priority = 39, groups = "beforeStudent")

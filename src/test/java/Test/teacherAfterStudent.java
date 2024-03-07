@@ -199,7 +199,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
             dashboardPage.buttonDeleteContentClick();
             dashboardPage.buttonConfirmDeleteContentClick();
             Assert.assertTrue(dashboardPage.contentDeletedIsDisplayed());
-            Assert.assertEquals(dashboardPage.contentDeletedGetText(), "Content deleted");}
+            Assert.assertEquals(dashboardPage.contentDeletedGetText(), "Content deleted");
+            }
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();
@@ -398,7 +399,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 13, groups = "afterStudent", retryAnalyzer = Retry.class)
+    @Test (priority = 13, groups = "afterStudent")
     public void deleteNoteReminder () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
