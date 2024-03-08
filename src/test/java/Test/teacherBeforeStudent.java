@@ -131,6 +131,9 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
+
+
+
     }
 
 
@@ -249,7 +252,11 @@ public class teacherBeforeStudent extends BaseTestTeacher {
             String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
             String actualUrl1 = driver.getCurrentUrl();
             Assert.assertEquals(expectedUrl1, actualUrl1);
+
     }
+
+
+
 
     @Test (priority = 6, groups = "beforeStudent", retryAnalyzer = Retry.class)
     public void createProgram() throws InterruptedException {
