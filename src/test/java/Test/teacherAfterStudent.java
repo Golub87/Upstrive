@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.List;
 
 public class teacherAfterStudent extends BaseTestTeacher {
@@ -72,12 +73,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-
-
-
-
-    @Test (priority = 1, groups = "afterStudent")
-    public void sendMessageFromClassroomToNG () throws InterruptedException {
+    @Test(priority = 1, groups = "afterStudent")
+    public void sendMessageFromClassroomToNG() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -101,9 +98,9 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 2, groups = "afterStudent")
+    @Test(priority = 2, groups = "afterStudent")
 
-    public void assignActionTeacher () throws InterruptedException {
+    public void assignActionTeacher() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -117,7 +114,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
         catchUpPage.textInputFieldSendKeys("Automated assign");
         catchUpPage.submitButtonClick();
         Assert.assertTrue(catchUpPage.notificationActionAssignedIsDisplayed());
-        Assert.assertEquals(catchUpPage.notificationActionAssignedGetText(), "Action has been assigned to teacher" );
+        Assert.assertEquals(catchUpPage.notificationActionAssignedGetText(), "Action has been assigned to teacher");
         catchUpPage.xButtonCatchUpClick();
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
@@ -130,7 +127,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 3, groups = "afterStudent")
+    @Test(priority = 3, groups = "afterStudent")
     public void assignActionFromClassroomStudentTester() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -159,8 +156,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 4, groups = "afterStudent")
-    public void iWillTakeActionFromClassNemanjaP () throws InterruptedException {
+    @Test(priority = 4, groups = "afterStudent")
+    public void iWillTakeActionFromClassNemanjaP() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -185,8 +182,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-
-    @Test (priority = 5, groups = "afterStudent", retryAnalyzer = Retry.class)
+    @Test(priority = 5, groups = "afterStudent", retryAnalyzer = Retry.class)
 
     public void deleteContentTeacher() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
@@ -194,13 +190,13 @@ public class teacherAfterStudent extends BaseTestTeacher {
         loginPageTeacher.loginButtonClick();
         dashboardPage.buttonResultClick();
         int repeatDeletionProcess = 1;
-        for (int i = 0; i < repeatDeletionProcess; i++)
-        {dashboardPage.clickContent();
+        for (int i = 0; i < repeatDeletionProcess; i++) {
+            dashboardPage.clickContent();
             dashboardPage.buttonDeleteContentClick();
             dashboardPage.buttonConfirmDeleteContentClick();
             Assert.assertTrue(dashboardPage.contentDeletedIsDisplayed());
             Assert.assertEquals(dashboardPage.contentDeletedGetText(), "Content deleted");
-            }
+        }
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();
@@ -212,15 +208,15 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 6, groups = "afterStudent", retryAnalyzer = Retry.class)
+    @Test(priority = 6, groups = "afterStudent", retryAnalyzer = Retry.class)
 
-    public void deleteFeed () throws InterruptedException {
+    public void deleteFeed() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
         int repeatDeletionProcess = 1;
-        for (int i = 0; i < repeatDeletionProcess; i++)
-        {dashboardPage.feedPostsClick();
+        for (int i = 0; i < repeatDeletionProcess; i++) {
+            dashboardPage.feedPostsClick();
             Thread.sleep(1000);
             dashboardPage.xButtonFeedPostsClick();
             dashboardPage.confirmDeletionFeedPostsClick();
@@ -237,8 +233,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 7, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void checkEmotionFilterInClassroom () throws InterruptedException {
+    @Test(priority = 7, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void checkEmotionFilterInClassroom() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -260,11 +256,10 @@ public class teacherAfterStudent extends BaseTestTeacher {
         Assert.assertEquals(expectedUrl1, actualUrl1);
 
 
-
     }
 
-    @Test (priority = 8, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void checkSearchFieldInClassroom () throws InterruptedException {
+    @Test(priority = 8, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void checkSearchFieldInClassroom() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -274,7 +269,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
         classroomPage.searchInClassroomSendKeys();
         Thread.sleep(2000);
         List<WebElement> allStudents = driver.findElements(By.xpath("//div[@class='classroom-wellbeing-student']"));
-        List<WebElement> filteredList = allStudents.stream().filter(student->student.getText().contains("Nikola")).toList();
+        List<WebElement> filteredList = allStudents.stream().filter(student -> student.getText().contains("Nikola")).toList();
         Assert.assertEquals(allStudents.size(), filteredList.size());
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
@@ -288,8 +283,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 9, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void assignActionFromWellbeingTracker () throws InterruptedException {
+    @Test(priority = 9, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void assignActionFromWellbeingTracker() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -318,8 +313,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 10, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void addNoteFromWellbeingTracker () throws InterruptedException {
+    @Test(priority = 10, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void addNoteFromWellbeingTracker() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -344,8 +339,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 11, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void addReminder () throws InterruptedException {
+    @Test(priority = 11, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void addReminder() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -371,8 +366,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    @Test (priority = 12, groups = "afterStudent", retryAnalyzer = Retry.class)
-    public void editNoteReminder () throws InterruptedException {
+    @Test(priority = 12, groups = "afterStudent", retryAnalyzer = Retry.class)
+    public void editNoteReminder() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -399,8 +394,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-    @Test (priority = 13, groups = "afterStudent")
-    public void deleteNoteReminder () throws InterruptedException {
+    @Test(priority = 13, groups = "afterStudent")
+    public void deleteNoteReminder() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
         loginPageTeacher.loginButtonClick();
@@ -426,10 +421,121 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
+    @Test(priority = 14, groups = "afterStudent")
+    public void editFeed() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.feedPostsClick();
+        Thread.sleep(7000);
+        dashboardPage.editFeedButton();
+        Thread.sleep(2000);
+        createFeedPage.headLineEDIT();
+        try {
+            createFeedPage.selectTargetClick();
+            createFeedPage.selectFavoritesClick();
+            createFeedPage.selectFavoritesTestClick();
+            createFeedPage.buttonOkClick();
+        } catch (Exception e) {
+            System.out.println("Target is loaded");
+        }
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
+        Thread.sleep(1000);
+        createFeedPage.updateFeed();
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Your data is updated!");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
 
+    }
+
+    //TODO edit question, edit Poll, download Poll and Question, stop Poll and Question
 
 
+    @Test(priority = 15, groups = "afterStudent")
+    public void editQuestion() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openQuestions();
+        dashboardPage.editButton();
+        createQuestionPage.headlineQuestionEdit();
+        try {
+            createQuestionPage.selectTargetClick();
+            createQuestionPage.selectFavoritesClick();
+            createQuestionPage.selectFavoritesTestClick();
+            createQuestionPage.buttonOkClick();
+        } catch (Exception e) {
+            System.out.println("Target is loaded");
+        }
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
+        Thread.sleep(1000);
+        createFeedPage.updateFeed();
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Your data is updated!");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+        Thread.sleep(5000);
+
+
+    }
+
+    @Test(priority = 16, groups = "afterStudent")
+    public void downloadQuestion() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openQuestions();
+        dashboardPage.downloadButton();
+        Thread.sleep(4000);
+        File file = new File("C:\\Users\\nikol\\Downloads\\Content data-Automation question EDITED.xlsx");
+        if (file.exists()) {
+            System.out.println("File downloaded");
+        }
+        dashboardPage.xButtonResultClick();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+    @Test(priority = 17, groups = "afterStudent")
+    public void stopQuestion() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openQuestions();
+        dashboardPage.stopButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(dashboardPage.stopButtonIsNotDisplayed(), "stopButtonIsNotDisplayed");
+        dashboardPage.xButtonResultClick();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
 
 
 

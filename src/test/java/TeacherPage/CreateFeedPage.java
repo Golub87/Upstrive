@@ -36,6 +36,10 @@ public class CreateFeedPage extends BaseTestTeacher {
     @FindBy (xpath = "//button[normalize-space()='Publish']")
     WebElement buttonPublish;
 
+    @FindBy (xpath = "//button[normalize-space()='Update']")
+    WebElement buttonUpdate;
+
+
     @FindBy (xpath = "//*[@id=\"home-container\"]/div/div/div[2]/div/div[2]/div[2]/div[1]/div/button")
     WebElement uploadPhotoVideo;
 
@@ -67,7 +71,9 @@ public class CreateFeedPage extends BaseTestTeacher {
     WebElement confirmDeleteTemplate;
 
 
-
+    public void updateFeed () {
+        wdWait.until(ExpectedConditions.visibilityOf(buttonUpdate)).click();
+    }
 
     public void confirmDeleteTemplateClick () {
         wdWait.until(ExpectedConditions.visibilityOf(confirmDeleteTemplate)).click();
@@ -126,6 +132,11 @@ public class CreateFeedPage extends BaseTestTeacher {
         wdWait.until(ExpectedConditions.elementToBeClickable(headlineInputField)).clear();
         headlineInputField.sendKeys(headline);
 
+    }
+
+    public void headLineEDIT () {
+        wdWait.until(ExpectedConditions.visibilityOf(headlineInputField)).clear();
+        headlineInputField.sendKeys("AUTOMATION EDIT FEED");
     }
 
     public void supportiveTextInputFieldSendKeys (String text) {

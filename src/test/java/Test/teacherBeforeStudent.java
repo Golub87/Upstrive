@@ -282,7 +282,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
             readyToGoContentPage.programRunningOkButtonClick();
             Assert.assertTrue(readyToGoContentPage.contentIsCreatedIsDisplayed());
             Assert.assertEquals(readyToGoContentPage.contentIsCreatedGetText(), "You successfully run this program");
-        } catch (Exception e){System.out.println("Program is not already running");}
+        } catch (Exception e){System.out.println("Program is not running");}
         readyToGoContentPage.readyToGoPageScroolUp();
         readyToGoContentPage.surveyReadyToGoClick();
         readyToGoContentPage.readyToGoPageScrool();
@@ -317,7 +317,6 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
 
     @Test (priority = 7, groups = "beforeStudent")
-
     public void createContentPoll() throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");

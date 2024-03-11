@@ -312,6 +312,49 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (xpath = "//div[@class='hover:bg-deepPurple pointer absolute top-[10px] flex bg-darkenPurple rounded-full w-[60px] h-[60px] justify-center items-center']")
     WebElement xButtonAssignedActionPopUp;
 
+    @FindBy (xpath = "//a[contains(@href, '/content?editId=')]")
+    List<WebElement> editFeedButtons;
+
+    @FindBy (xpath = "//span[normalize-space()='Open Question']")
+    List<WebElement> openQuestions;
+
+    @FindBy (xpath = "//span[normalize-space()='Edit']")
+    WebElement editButton;
+
+    @FindBy (xpath = "//span[normalize-space()='Download']")
+    WebElement downloadButton;
+
+    @FindBy (xpath = "//span[normalize-space()='Stop']")
+    WebElement stopButton;
+
+    public boolean stopButtonIsNotDisplayed (){
+        wdWait.until(ExpectedConditions.invisibilityOf(stopButton));
+        return true;
+
+    }
+
+    public void stopButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(stopButton)).click();
+    }
+
+    public void downloadButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(downloadButton)).click();
+    }
+    public void editButton () {
+        wdWait.until(ExpectedConditions.visibilityOf(editButton)).click();
+    }
+
+    public void openQuestions () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(openQuestions));
+        openQuestions.get(0).click();
+    }
+
+
+    public void editFeedButton () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(editFeedButtons));
+        editFeedButtons.get(0).click();
+    }
+
     public void xButtonAssignedActionPopUpClick () {
         wdWait.until(ExpectedConditions.visibilityOf(xButtonAssignedActionPopUp)).click();
     }

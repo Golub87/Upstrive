@@ -41,6 +41,8 @@ public CreateQuestionPage () {
     WebElement notificationContentIsCreated;
 
 
+
+
     public boolean contentIsCreatedIsDisplayed () {
         wdWait.until(ExpectedConditions.visibilityOf(notificationContentIsCreated));
         return notificationContentIsCreated.isDisplayed();
@@ -59,6 +61,12 @@ public CreateQuestionPage () {
     public void headlineInputFieldSendKeys (String headline) {
         wdWait.until(ExpectedConditions.elementToBeClickable(headlineInputField)).clear();
         headlineInputField.sendKeys(headline);
+
+    }
+
+    public void headlineQuestionEdit () {
+        wdWait.until(ExpectedConditions.elementToBeClickable(headlineInputField)).clear();
+        headlineInputField.sendKeys("Automation question EDITED");
 
     }
 
