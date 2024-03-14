@@ -93,6 +93,14 @@ public CreatePollPage() {
     @FindBy (xpath = "//body//div//div[@role='dialog']//div//div//div//div//div//div//div[2]//button[2]//*[name()='svg']")
     WebElement rightArrowScheduleTime;
 
+
+
+
+    public void headlinePollEdit () {
+        wdWait.until(ExpectedConditions.elementToBeClickable(headlineInputField)).clear();
+        headlineInputField.sendKeys("Automation Poll EDITED");
+
+    }
     public void rightArrowScheduleClick () {
         wdWait.until(ExpectedConditions.visibilityOf(rightArrowScheduleTime)).click();
     }

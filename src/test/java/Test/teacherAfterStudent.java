@@ -455,7 +455,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
 
     }
 
-    //TODO edit question, edit Poll, download Poll and Question, stop Poll and Question
+
 
 
     @Test(priority = 15, groups = "afterStudent")
@@ -472,7 +472,8 @@ public class teacherAfterStudent extends BaseTestTeacher {
             createQuestionPage.selectFavoritesClick();
             createQuestionPage.selectFavoritesTestClick();
             createQuestionPage.buttonOkClick();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("Target is loaded");
         }
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
@@ -487,7 +488,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
-        Thread.sleep(5000);
+
 
 
     }
@@ -538,9 +539,102 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
+    @Test (priority = 18, groups = "afterStudent")
+    public void editPoll () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openPoll();
+        dashboardPage.editButton();
+        createPollPage.headlinePollEdit();
+        try {
+            createPollPage.selectTargetClick();
+            createPollPage.selectFavoritesClick();
+            createPollPage.selectFavoritesTestClick();
+            createPollPage.buttonOkClick();
+        }
+        catch (Exception e) {
+            System.out.println("Target is loaded");
+        }
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
+        Thread.sleep(1000);
+        createFeedPage.updateFeed();
+        Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
+        Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Your data is updated!");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+
+    }
+
+    @Test(priority = 19, groups = "afterStudent")
+    public void downloadPoll() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openPoll();
+        dashboardPage.downloadButton();
+        Thread.sleep(3000);
+        File file = new File("C:\\Users\\nikol\\Downloads\\Content data-Automation Poll EDITED.xlsx");
+        if (file.exists()) {
+            System.out.println("File downloaded");
+        }
+        dashboardPage.xButtonResultClick();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+    @Test(priority = 20, groups = "afterStudent")
+    public void stopPoll() throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
+        dashboardPage.openPoll();
+        dashboardPage.stopButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(dashboardPage.stopButtonIsNotDisplayed(), "stopButtonIsNotDisplayed");
+        dashboardPage.xButtonResultClick();
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
+
+
+    @Test (priority = 21, groups = "afterStudent", enabled = false)
+    public void editSurvey () {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.buttonResultClick();
 
 
 
+    }
+
+
+
+
+
+//TODO   survey stop and edit
 
 
 

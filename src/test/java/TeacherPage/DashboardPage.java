@@ -327,6 +327,17 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (xpath = "//span[normalize-space()='Stop']")
     WebElement stopButton;
 
+    @FindBy (xpath = "//span[normalize-space()='Open Poll']")
+    List<WebElement> openPolls;
+
+
+    public void openPoll () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(openPolls));
+        openPolls.get(0).click();
+
+    }
+
+
     public boolean stopButtonIsNotDisplayed (){
         wdWait.until(ExpectedConditions.invisibilityOf(stopButton));
         return true;

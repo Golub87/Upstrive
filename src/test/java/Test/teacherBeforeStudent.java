@@ -326,7 +326,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         dashboardPage.createContentClick();
         dashboardPage.createYourOwnClick();
         createPollPage.buttonPollClick();
-        createPollPage.headlineInputFieldSendKeys("Automation testing");
+        createPollPage.headlineInputFieldSendKeys("Automation Poll");
         createPollPage.supportiveTextInputFieldSendKeys("Selenium");
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         createPollPage.option1SendKeys("Yes");
@@ -358,7 +358,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         dashboardPage.createContentClick();
         dashboardPage.createYourOwnClick();
         createQuestionPage.buttonQuestionClick();
-        createQuestionPage.headlineInputFieldSendKeys("Automation testing");
+        createQuestionPage.headlineInputFieldSendKeys("Automation question");
         createQuestionPage.supportiveTextInputFieldSendKeys("Selenium");
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
         createQuestionPage.selectTargetClick();
@@ -392,7 +392,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         dashboardPage.createContentClick();
         dashboardPage.createYourOwnClick();
         createSurveyPage.buttonSurveyClick();
-        createSurveyPage.headlineInputFieldSendKeys("Automation testing");
+        createSurveyPage.headlineInputFieldSendKeys("Automation Survey");
         createSurveyPage.supportiveTextInputFieldSendKeys("Selenium");
         createSurveyPage.headLineSection1InputFieldSendKeys("WELLBEING");
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
@@ -1956,7 +1956,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         wellbeingTrackerPage.profileClick();
         Thread.sleep(2000);
         wellbeingTrackerPage.exportData();
-        Thread.sleep(5000);
+        Thread.sleep(4000);
         File templateFile = new File ("C:\\Users\\nikol\\Downloads\\Counseling report.pdf");
         if (templateFile.exists())
         {System.out.println("File downloaded");}
@@ -1970,6 +1970,11 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
 
     }
+
+
+
+
+
 
 
 
