@@ -47,8 +47,8 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
     @FindBy (xpath = "//*[@id=\"home-container\"]/div/div[1]/div/div[2]/div[2]/div[1]")
     WebElement surveyReadyToGo;
 
-    @FindBy (xpath = "//div[contains(@class,'type-home-container')]//div[1]//div[2]//button[1]")
-    WebElement resilienceSurvey;
+    @FindBy (xpath = "//div[@class='flex-1 flex flex-row items-center']")
+    List<WebElement> resilienceSurvey;
 
     @FindBy (xpath = "//div[contains(@class,'text-[#5E639B] text-lg hover:text-deepPurple font-semibold rounded-full py-1 px-4 bg-containerGray pointer')]")
     WebElement selectTargetReadyToGo;
@@ -88,6 +88,10 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
 
     @FindBy (xpath = "//p[@class='single-type-item-title text-left']")
     List<WebElement> programsTitles;
+
+    //input[@class='w-full text-deepPurple  border py-3 border-x-0 border-t-0 border-b-deleteRed placeholder-deleteRed']
+
+
 
 
     public void searchPrograms () throws InterruptedException {
@@ -208,8 +212,8 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
     }
 
     public void resilienceSurveyReadyToGoClick () {
-        wdWait.until(ExpectedConditions.visibilityOf(resilienceSurvey));
-        resilienceSurvey.click();
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(resilienceSurvey));
+        resilienceSurvey.get(5).click();
     }
 
     public void selectTargetReadyToGoClick () {

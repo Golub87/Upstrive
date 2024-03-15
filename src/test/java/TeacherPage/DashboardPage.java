@@ -330,6 +330,15 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (xpath = "//span[normalize-space()='Open Poll']")
     List<WebElement> openPolls;
 
+    @FindBy (xpath = "//span[normalize-space()='Open Survey']")
+    List<WebElement> openSurveys;
+
+
+    public void openSurvey () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(openSurveys));
+        openSurveys.get(0).click();
+
+    }
 
     public void openPoll () {
         wdWait.until(ExpectedConditions.visibilityOfAllElements(openPolls));
@@ -351,8 +360,9 @@ public class DashboardPage extends BaseTestTeacher {
     public void downloadButton () {
         wdWait.until(ExpectedConditions.visibilityOf(downloadButton)).click();
     }
-    public void editButton () {
+    public void editButton () throws InterruptedException {
         wdWait.until(ExpectedConditions.visibilityOf(editButton)).click();
+        Thread.sleep(2000);
     }
 
     public void openQuestions () {

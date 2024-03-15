@@ -58,6 +58,12 @@ public CreateSurveyPage () {
 
     }
 
+    public void headlineEdit () {
+        wdWait.until(ExpectedConditions.elementToBeClickable(headlineInputField)).clear();
+        headlineInputField.sendKeys("AUTOMATION SURVEY EDIT");
+
+    }
+
     public void supportiveTextInputFieldSendKeys (String text) {
         wdWait.until(ExpectedConditions.elementToBeClickable(supportiveTextInputField)).clear();
         supportiveTextInputField.sendKeys(text);
