@@ -460,15 +460,23 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         userManagementPage.searchFieldClassSendKeys();
         Thread.sleep(1000);
         userManagementPage.arrowDownButtonClick();
-        userManagementPage.addStudentClick();
-        userManagementPage.enterNameSendKeys("Nikola");
-        userManagementPage.enterSurnameSendKeys("Golubovic");
-        userManagementPage.enterEmailSendKeys("nikola87.golubovic+101@gmail.com");
-        Thread.sleep(1000);
-        userManagementPage.saveButtonClick();
-        Assert.assertTrue(userManagementPage.notificationDataIsSavedIsDisplayed());
-        Thread.sleep(1000);
-        Assert.assertEquals(userManagementPage.notificationDataIsSavedGetText(),"Data is saved");
+        String email = "nikola87.golubovic";
+        int students = 1;
+        int emailNumbers = 102;
+        int i;
+        for (i = 0; i<students; i++) {
+            userManagementPage.addStudentClick();
+            userManagementPage.enterNameSendKeys("Nikola");
+            userManagementPage.enterSurnameSendKeys("Golubovic");
+            userManagementPage.enterEmailSendKeys(email + "+" + emailNumbers + "@gmail.com" );
+            Thread.sleep(1000);
+            userManagementPage.saveButtonClick();
+            Assert.assertTrue(userManagementPage.notificationDataIsSavedIsDisplayed());
+            Thread.sleep(1000);
+            Assert.assertEquals(userManagementPage.notificationDataIsSavedGetText(), "Data is saved");
+
+            emailNumbers++;
+        }
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();

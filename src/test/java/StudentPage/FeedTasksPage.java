@@ -260,6 +260,38 @@ public class FeedTasksPage extends BaseTestStudent {
     @FindBy (xpath = "//button[@class='how-are-you-save-button']")
     WebElement continue2;
 
+    @FindBy (xpath = "//div[@class='new-survey-options-item noselect '] [1]")
+    List<WebElement> firstAnswers;
+
+    public void answerSurveyQuestions () throws InterruptedException {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(firstAnswers));
+        firstAnswers.get(0).click();
+        firstAnswers.get(1).click();
+        //Thread.sleep(2000);
+        wdWait.until(ExpectedConditions.visibilityOf(emotionElement));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        String script = "arguments[0].scrollTop = arguments[1];";
+        jsExecutor.executeScript(script, emotionElement, 850);
+        firstAnswers.get(2).click();
+        firstAnswers.get(3).click();
+        jsExecutor.executeScript(script, emotionElement, 850);
+        firstAnswers.get(4).click();
+        firstAnswers.get(5).click();
+        firstAnswers.get(6).click();
+        firstAnswers.get(7).click();
+        firstAnswers.get(8).click();
+        jsExecutor.executeScript(script, emotionElement, 1100);
+        firstAnswers.get(9).click();
+
+
+        //insert scroll inside element
+    }
+
+
+
+
+
+
     public void continue2 (){
         wdWait.until(ExpectedConditions.visibilityOf(continue2)).click();
     }

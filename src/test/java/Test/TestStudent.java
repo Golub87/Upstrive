@@ -812,11 +812,32 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals(actualUrl, expectedUrl);
 
 
-
     }
 
+    @Test (priority = 30)
+    public void answerSurveyReadyToGo () throws InterruptedException {
+        loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
+        loginStudentPage.passwordSendKeys("Golub1987!");
+        loginStudentPage.loginButtonClick();
+        feedTasksPage.answerSurveyClick();
+        feedTasksPage.buttonTakeItClick();
+        feedTasksPage.answerSurveyQuestions();
+        feedTasksPage.buttonFinishSurveyClick();
+        Thread.sleep(1000);
+        Assert.assertTrue(feedTasksPage.notificationStudentIsDisplayed());
+        Assert.assertEquals(feedTasksPage.notificationStudentGetText(), "Your results are saved!" );
+        feedTasksPage.feedbackCloseButtonClick();
+        feedTasksPage.notificationCloseButton();
+        feedTasksPage.profileClick();
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
+        profileStudentPage.logoutButtonClick();
+        profileStudentPage.confirmLogoutClick();
+        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://student-staging.upstrivesystem.com/";
+        Assert.assertEquals(actualUrl, expectedUrl);
 
 
+    }
 
 
 
