@@ -462,7 +462,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         userManagementPage.arrowDownButtonClick();
         String email = "nikola87.golubovic";
         int students = 1;
-        int emailNumbers = 102;
+        int emailNumbers = 101;
         int i;
         for (i = 0; i<students; i++) {
             userManagementPage.addStudentClick();
@@ -944,7 +944,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         analytics.searchReportSendKeys();
         Thread.sleep(2000);
         System.out.println(analytics.searchResultReportGetText());
-        Assert.assertEquals(analytics.searchResultReportGetText(), "Report-check assign actions");
+        Assert.assertEquals(analytics.searchResultReportGetText(), "Automated RAW report");
         dashboardPage.linkListHover();
         dashboardPage.logoutButtonClick();
         dashboardPage.confirmLogoutClick();
@@ -994,6 +994,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
+        // TODO download file
 
     }
 
@@ -1020,7 +1021,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         analytics.targetUserYearsClick();
         Thread.sleep(1000);
         analytics.createReportButtonClick();
-        analytics.fileNameSendKeys();
+        analytics.fileNamePDFSendKeys();
         analytics.createReportButtonLastStepClick();
         Assert.assertTrue(analytics.notificationReportCreatedIsDisplayed());
         Assert.assertEquals(analytics.notificationReportCreatedGetText(), "You will be notified once your report is ready");
@@ -1032,7 +1033,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
-
+        // TODO download file
 
 
     }

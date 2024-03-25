@@ -638,7 +638,7 @@ public class teacherAfterStudent extends BaseTestTeacher {
         }
         ((JavascriptExecutor) driver).executeScript("window.scrollBy (-0,400)");
         Thread.sleep(1000);
-        createSurveyPage.buttonPublishClick();
+        createSurveyPage.buttonUpdate();
         Assert.assertTrue(wellbeingTrackerPage.notificationIsDisplayed());
         Assert.assertEquals(wellbeingTrackerPage.notificationGetText(), "Your data is updated!");
         dashboardPage.linkListHover();

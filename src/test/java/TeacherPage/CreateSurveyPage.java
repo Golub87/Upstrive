@@ -33,10 +33,16 @@ public CreateSurveyPage () {
     @FindBy (xpath = "//div[normalize-space()='Publish']")
     WebElement buttonPublish;
 
+    @FindBy (xpath = "//div[normalize-space()='Update']")
+    WebElement buttonUpdate;
     @FindBy (xpath = "//div[@class='animate-enter max-w-md p-4 w-full rounded-xl pointer-events-auto flex']")
     WebElement notificationContentIsCreated;
 
 
+    public void buttonUpdate () {
+        wdWait.until(ExpectedConditions.visibilityOf(buttonUpdate)).click();
+
+    }
     public boolean contentIsCreatedIsDisplayed () {
         wdWait.until(ExpectedConditions.visibilityOf(notificationContentIsCreated));
         return notificationContentIsCreated.isDisplayed();

@@ -41,7 +41,7 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
     @FindBy(xpath = "//div[contains(@class,'bg-deepPurple hover:bg-highlightColor text-highlightColor hover:text-deepPurple text-lg font-semibold items-center justify-center flex h-[65px] w-[120px] pointer uppercase rounded-full')]")
     WebElement buttonOk;
 
-    @FindBy(xpath = "//div[@id='cy-program-run-modal']")
+    @FindBy(xpath = "//p[@class='text-highlightColor text-[18px] leading-7 font-semibold']")
     WebElement runProgramButton;
 
     @FindBy (xpath = "//*[@id=\"home-container\"]/div/div[1]/div/div[2]/div[2]/div[1]")
@@ -77,10 +77,10 @@ public class ReadyToGoContentPage extends BaseTestTeacher {
     @FindBy (xpath = "//*[name()='path' and contains(@d,'M2.63635 2')]")
     WebElement deleteProgramButton;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeletionProgram;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement programRunningOkButton;
 
     @FindBy (xpath = "//input[@placeholder='Search']")

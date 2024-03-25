@@ -60,7 +60,7 @@ public class UserManagementPage extends BaseTestTeacher {
     @FindBy (xpath = "//p[normalize-space()='Delete student']")
     WebElement deleteStudentButton;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeleteStudent;
 
     @FindBy (xpath = "//div[@class='text-highlightColor font-bold text-xl']")
@@ -72,7 +72,7 @@ public class UserManagementPage extends BaseTestTeacher {
     @FindBy (xpath = "//div[@id='home']//div//div[@class='text-highlightColor font-bold text-xl'][normalize-space()='New password is generated']")
     WebElement newPasswordIsGenerated;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmGeneratePassword;
 
     @FindBy (xpath = "//div[@class='close-modal-icon ']//*[name()='svg']")
@@ -141,7 +141,7 @@ public class UserManagementPage extends BaseTestTeacher {
     @FindBy (xpath = "/html/body/div[8]/div/div/div[1]/div[4]/form/div[3]/div")
     WebElement deleteTeacher;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeleteTeacher;
 
     @FindBy (xpath = "//div[@class='text-highlightColor font-bold text-xl']")
@@ -173,7 +173,7 @@ public class UserManagementPage extends BaseTestTeacher {
     WebElement deleteClass;
 
 
-    @FindBy (xpath = "//div[@class=' flex flex-row items-center justify-center gap-[10px]']")
+    @FindBy (xpath = "//button[normalize-space()='Yes, Delete']")
     WebElement confirmDeleteClass;
 
 

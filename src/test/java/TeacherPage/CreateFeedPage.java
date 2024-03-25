@@ -67,7 +67,7 @@ public class CreateFeedPage extends BaseTestTeacher {
     @FindBy (xpath = "//div[@class='rounded-full bg-[#5E639B] py-3 w-[100px] text-[#FDDF6D] flex items-center justify-center font-semibold pointer']")
     WebElement selectTemplateButton;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeleteTemplate;
 
 

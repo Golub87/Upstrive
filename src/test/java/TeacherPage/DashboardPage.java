@@ -42,7 +42,7 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (xpath = "//span[normalize-space()='Delete']" )
     WebElement buttonDeleteContent;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement buttonConfirmDeleteContent;
 
     @FindBy (xpath = "//div[normalize-space()='Feed Posts']")
@@ -51,7 +51,7 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (id="delete-icon-0")
     WebElement xbuttonDeleteFeedPost;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement buttonConfirmDeleteFeedPost;
 
     @FindBy (xpath = "//*[@id=\"sideBar\"]/div/div[5]/div/div[1]/div[2]/div/div[2]/a[2]/div")
@@ -224,10 +224,10 @@ public class DashboardPage extends BaseTestTeacher {
     @FindBy (xpath = "text-darkenPurple font-medium text-sm mr-[50px]")
     List<WebElement> resultsFilterDisplayButton;
 
-    @FindBy (xpath = "//div[@class='flex flex-row items-center gap-[6px] flex-1']")
+    @FindBy (xpath = "//p[normalize-space()='Sample Group']")
     WebElement sampleGroup;
 
-    @FindBy (xpath = "//div[@class='w-full flex flex-row items-center justify-center gap-1 bg-white h-[40px] mt-[15px] rounded-[47px] cursor-pointer']")
+    @FindBy (xpath = "//p[normalize-space()='Create Group']")
     WebElement createGroup;
 
     @FindBy (xpath = "//input[@placeholder='Name a new group']")

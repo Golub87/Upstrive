@@ -92,7 +92,7 @@ public class WellbeingTrackerPage extends BaseTestTeacher {
     WebElement removeReminder;
 
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmRemoveReminder;
 
 

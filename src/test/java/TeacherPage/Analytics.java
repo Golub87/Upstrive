@@ -92,7 +92,7 @@ public class Analytics extends BaseTestTeacher {
     @FindBy (xpath = "//div[@class='w-[40px] analytics-trash-button']//*[name()='svg']")
     WebElement deleteTrendInAnalyticsButton;
 
-    @FindBy (xpath = "//div[@class='border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white']")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeleteTrendInAnalytics;
 
     @FindBy (xpath = "//div[@class='text-highlightColor font-bold text-xl']")
@@ -192,10 +192,13 @@ public class Analytics extends BaseTestTeacher {
 
     public void fileNameSendKeys () {
         wdWait.until(ExpectedConditions.visibilityOf(fileName)).clear();
-        fileName.sendKeys("Automated report");
+        fileName.sendKeys("Automated RAW report");
     }
 
-
+    public void fileNamePDFSendKeys () {
+        wdWait.until(ExpectedConditions.visibilityOf(fileName)).clear();
+        fileName.sendKeys("Automated PDF report");
+    }
 
     public void createReportButtonClick () {
         wdWait.until(ExpectedConditions.visibilityOf(createReportButton)).click();
@@ -289,7 +292,7 @@ public class Analytics extends BaseTestTeacher {
 
     public void searchReportSendKeys () {
         wdWait.until(ExpectedConditions.visibilityOf(searchReportField)).clear();
-        searchReportField.sendKeys("check");
+        searchReportField.sendKeys("Automated RAW");
     }
 
     public void createReportClick () {

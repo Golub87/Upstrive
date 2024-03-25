@@ -38,7 +38,7 @@ public class SettingsPage extends BaseTestTeacher {
     @FindBy (xpath = "//p[normalize-space()='DELETE NOTE']")
     WebElement deletePrivateNote;
 
-    @FindBy (xpath = "//div[contains(@class,'border pointer flex items-center justify-center border-deleteRed text-deleteRed text-base font-semibold rounded-xl w-[250px] h-[55px] transition-all !duration-[250ms] ease-in-out hover:bg-deleteRed hover:text-white')]")
+    @FindBy (xpath = "//button[normalize-space()='Ok']")
     WebElement confirmDeletePrivateNotes;
 
 
