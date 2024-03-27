@@ -676,7 +676,46 @@ public class teacherAfterStudent extends BaseTestTeacher {
     }
 
 
-
+    @Test (priority = 23, groups = "afterStudent")
+    public void deleteStudentsAndClass () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.userManagementClick();
+        userManagementPage.searchFieldClassSendKeys();
+        Thread.sleep(2000);
+        userManagementPage.arrowDownButtonClick();
+        int repeatDeleteStudent = 2;
+        for (int i = 0; i < repeatDeleteStudent; i++) {
+            userManagementPage.studentClickForDelete();
+            userManagementPage.deleteStudentButtonClick();
+            userManagementPage.confirmDeleteStudentClick();
+            Assert.assertTrue(userManagementPage.notificationStudentRemovedIsDisplayed());
+            Assert.assertEquals(userManagementPage.notificationStudentRemovedGetText(), "Student removed");
+            Thread.sleep(1000);
+        }
+        userManagementPage.deleteClassClick();
+        userManagementPage.confirmDeleteClassClick();
+        Assert.assertTrue(userManagementPage.notificationPopupClassDeletedIsDisplayed());
+        userManagementPage.classDeletedClosePopupButtonClick();
+        userManagementPage.searchFieldSendKeys();
+        Thread.sleep(2000);
+        userManagementPage.arrowDownButtonClick();
+        userManagementPage.studentClickForDelete();
+        userManagementPage.deleteStudentButtonClick();
+        userManagementPage.confirmDeleteStudentClick();
+        Assert.assertTrue(userManagementPage.notificationStudentRemovedIsDisplayed());
+        Assert.assertEquals(userManagementPage.notificationStudentRemovedGetText(), "Student removed");
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+    }
 
 
 

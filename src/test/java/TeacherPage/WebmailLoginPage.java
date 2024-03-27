@@ -45,8 +45,16 @@ public class WebmailLoginPage extends BaseTestTeacher {
     @FindBy (xpath = "//a[@onmouseover='rcube_webmail.long_subject_title(this,1)']")
     List<WebElement> emails;
 
+    @FindBy (xpath = "//b[normalize-space()='Password:']")
+    WebElement generatedPassword;
 
 
+
+    public String generatedPassword() {
+        wdWait.until(ExpectedConditions.visibilityOf(generatedPassword));
+        return generatedPassword.getText();
+
+    }
 
 
     public void emailsClickFirst () {

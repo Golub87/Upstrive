@@ -839,6 +839,88 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
+    @Test (priority = 31)
+    public void studentMayerLoginAndLogout () throws InterruptedException {
+        loginStudentPage.emailSendKeys("nikola87.golubovic+102@gmail.com");
+        loginStudentPage.passwordSendKeys("123");
+        loginStudentPage.loginButtonClick();
+        Assert.assertTrue(feedTasksPage.homeButtonIsDisplayed());
+        feedTasksPage.profileClick();
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
+        profileStudentPage.logoutButtonClick();
+        profileStudentPage.confirmLogoutClick();
+        Thread.sleep(2000);
+        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://student-staging.upstrivesystem.com/";
+        Assert.assertEquals(actualUrl, expectedUrl);
+
+
+    }
+
+
+    @Test (priority = 32)
+    public void studentDuleRadovicLoginAndLogout () throws InterruptedException {
+        loginStudentPage.emailSendKeys("nikola87.golubovic+103@gmail.com");
+        loginStudentPage.passwordSendKeys("123");
+        loginStudentPage.loginButtonClick();
+        Thread.sleep(2000);
+        loginStudentPage.newPasswordSendKeys();
+        loginStudentPage.repeatNewPasswordSendKeys();
+        loginStudentPage.submitNewPasswordClick();
+        Assert.assertTrue(feedTasksPage.homeButtonIsDisplayed());
+        feedTasksPage.profileClick();
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy (0,400)");
+        profileStudentPage.logoutButtonClick();
+        profileStudentPage.confirmLogoutClick();
+        Thread.sleep(2000);
+        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://student-staging.upstrivesystem.com/";
+        Assert.assertEquals(actualUrl, expectedUrl);
+
+
+    }
+
+
+    @Test (priority = 32)
+    public void studentS2LoginAndLogoutAfterGeneratedPassword () throws InterruptedException {
+        loginStudentPage.emailSendKeys("us_test_s2@we-deliver.net");
+        //loginStudentPage.passwordSendKeys("Golub1987!");
+        //loginStudentPage.loginButtonClick();
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://webmail.we-deliver.net/");
+        webmailLoginPage.emailSendKeys("us_test_s2@we-deliver.net");
+        webmailLoginPage.passwordSendKeys("(v=IlNv.J{3;");
+        webmailLoginPage.loginButtonClick();
+        Thread.sleep(50000);
+        driver.navigate().refresh();
+        Thread.sleep(10000);
+        driver.navigate().refresh();
+        webmailLoginPage.emailsClickFirst();
+        driver.switchTo().frame("messagecontframe");
+        String token2 = webmailLoginPage.generatedPassword();
+        System.out.println(webmailLoginPage.generatedPassword());
+        driver.switchTo().defaultContent();
+        driver.switchTo().window(tabs.get(0));
+        loginStudentPage.generatedPasswordInput(token2);
+        loginStudentPage.loginButtonClick();
+        Thread.sleep(2000);
+        loginStudentPage.newPasswordSendKeys();
+        loginStudentPage.repeatNewPasswordSendKeys();
+        loginStudentPage.submitNewPasswordClick();
+        Thread.sleep(2000);
+        String dashboardPage = driver.getCurrentUrl();
+        String expectedUrl = "https://student-staging.upstrivesystem.com/home";
+        Assert.assertEquals(dashboardPage, expectedUrl);
+
+
+    }
+
+
+
+
+
 
 
 

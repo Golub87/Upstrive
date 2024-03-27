@@ -246,6 +246,27 @@ public class UserManagementPage extends BaseTestTeacher {
     @FindBy (xpath = "//a[normalize-space()='Download Template File']")
     WebElement downloadTemplate;
 
+    @FindBy (xpath = "//td[@style='width: 23%;']")
+    List<WebElement> students7B;
+
+
+
+    public void selectStudentTesterS2 () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(students7B));
+        int classSize = students7B.size();
+        for (WebElement studentTesterS2: students7B) {
+            String studentS2 = studentTesterS2.getText();
+            if (studentS2.equalsIgnoreCase("Student Tester S2"))
+            {
+                studentTesterS2.click();
+            }
+
+
+        }
+
+
+    }
+
     public void downloadTemplate () {
         wdWait.until(ExpectedConditions.visibilityOf(downloadTemplate)).click();
     }
@@ -361,6 +382,11 @@ public class UserManagementPage extends BaseTestTeacher {
         wdWait.until(ExpectedConditions.visibilityOf(searchFieldClass)).sendKeys("6");
     }
 
+    public void searchClass () {
+        wdWait.until(ExpectedConditions.visibilityOf(searchFieldClass)).sendKeys("7-B");
+
+
+    }
     public void searchFieldSendKeys () {
         wdWait.until(ExpectedConditions.visibilityOf(searchFieldClass)).clear();
         searchFieldClass.sendKeys("2-B");

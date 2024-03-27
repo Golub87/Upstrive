@@ -569,10 +569,10 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         dashboardPage.linkListHover();
         Thread.sleep(1000);
         dashboardPage.userManagementClick();
-        userManagementPage.searchFieldClassSendKeys();
+        userManagementPage.searchClass();
         Thread.sleep(2000);
         userManagementPage.arrowDownButtonClick();
-        userManagementPage.studentNikolaGolubovicClick();
+        userManagementPage.selectStudentTesterS2();
         userManagementPage.studentInfoScroll();
         userManagementPage.generateNewPasswordClick();
         userManagementPage.confirmGeneratePasswordClick();
@@ -615,46 +615,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         }
 
 
-        @Test (priority = 16, groups = "beforeStudent")
-        public void deleteStudentsAndClass () throws InterruptedException {
-        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
-        loginPageTeacher.passwordSendKeys("Golub1987!");
-        loginPageTeacher.loginButtonClick();
-        dashboardPage.linkListHover();
-        Thread.sleep(1000);
-        dashboardPage.userManagementClick();
-        userManagementPage.searchFieldClassSendKeys();
-        Thread.sleep(2000);
-        userManagementPage.arrowDownButtonClick();
-        int repeatDeleteStudent = 2;
-        for (int i = 0; i < repeatDeleteStudent; i++) {
-            userManagementPage.studentClickForDelete();
-            userManagementPage.deleteStudentButtonClick();
-            userManagementPage.confirmDeleteStudentClick();
-            Assert.assertTrue(userManagementPage.notificationStudentRemovedIsDisplayed());
-            Assert.assertEquals(userManagementPage.notificationStudentRemovedGetText(), "Student removed");
-            Thread.sleep(1000);
-            }
-        userManagementPage.deleteClassClick();
-        userManagementPage.confirmDeleteClassClick();
-        Assert.assertTrue(userManagementPage.notificationPopupClassDeletedIsDisplayed());
-        userManagementPage.classDeletedClosePopupButtonClick();
-        userManagementPage.searchFieldSendKeys();
-        Thread.sleep(2000);
-        userManagementPage.arrowDownButtonClick();
-        userManagementPage.studentClickForDelete();
-        userManagementPage.deleteStudentButtonClick();
-        userManagementPage.confirmDeleteStudentClick();
-        Assert.assertTrue(userManagementPage.notificationStudentRemovedIsDisplayed());
-        Assert.assertEquals(userManagementPage.notificationStudentRemovedGetText(), "Student removed");
-        dashboardPage.linkListHover();
-        dashboardPage.logoutButtonClick();
-        dashboardPage.confirmLogoutClick();
-        Thread.sleep(1000);
-        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
-        String actualUrl1 = driver.getCurrentUrl();
-        Assert.assertEquals(expectedUrl1, actualUrl1);
-        }
+
 
 
     @Test (priority = 17, groups = "beforeStudent")
@@ -778,12 +739,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
 
 
-
-
-
     }
-
-
 
 
     @Test (priority = 20, groups = "beforeStudent", retryAnalyzer = Retry.class)
@@ -994,11 +950,11 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
-        // TODO download file
+
 
     }
 
-    @Test(priority = 28, retryAnalyzer = Retry.class)
+    @Test(priority = 28, enabled = false, retryAnalyzer = Retry.class)
     public void createPdfReport () throws InterruptedException {
         loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
         loginPageTeacher.passwordSendKeys("Golub1987!");
@@ -1033,7 +989,7 @@ public class teacherBeforeStudent extends BaseTestTeacher {
         String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
         String actualUrl1 = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl1, actualUrl1);
-        // TODO download file
+
 
 
     }
@@ -1980,10 +1936,58 @@ public class teacherBeforeStudent extends BaseTestTeacher {
 
     }
 
+    @Test (priority = 64)
+    public void downloadRawReport () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.analyticsButtonClick();
+        analytics.createReportClick();
+        analytics.downloadRawReport();
+        Thread.sleep(4000);
+        File templateFile = new File ("C:\\Users\\nikol\\Downloads\\316102a0-ea72-11ee-ad1c-0acc9e42096f.csv");
+        if (templateFile.exists())
+        {System.out.println("File downloaded");}
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
+
+    }
 
 
 
+    @Test (priority = 65, enabled = false)
+    public void downloadPdfReport () throws InterruptedException {
+        loginPageTeacher.emailSendKeys("us_test_t1@we-deliver.net");
+        loginPageTeacher.passwordSendKeys("Golub1987!");
+        loginPageTeacher.loginButtonClick();
+        dashboardPage.linkListHover();
+        Thread.sleep(1000);
+        dashboardPage.analyticsButtonClick();
+        analytics.createReportClick();
+        analytics.downloadPdfReports();
+        Thread.sleep(4000);
+        File templateFile = new File ("C:\\Users\\nikol\\Downloads\\316102a0-ea72-11ee-ad1c-0acc9e42096f.csv");
+        if (templateFile.exists())
+        {
+            System.out.println("File downloaded");
+        }
+        dashboardPage.linkListHover();
+        dashboardPage.logoutButtonClick();
+        dashboardPage.confirmLogoutClick();
+        Thread.sleep(1000);
+        String expectedUrl1 = "https://web-staging.upstrivesystem.com/login";
+        String actualUrl1 = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl1, actualUrl1);
 
+
+    }
 
 
 

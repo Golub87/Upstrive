@@ -45,6 +45,12 @@ public class LoginStudentPage extends BaseTestStudent {
     WebElement submitNewPassword;
 
 
+    public void generatedPasswordInput (String token) {
+        wdWait.until(ExpectedConditions.visibilityOf(passwordInputField)).clear();
+        passwordInputField.clear();
+        passwordInputField.sendKeys(token);
+
+    }
     public void submitNewPasswordClick () {
         wdWait.until(ExpectedConditions.visibilityOf(submitNewPassword)).click();
     }

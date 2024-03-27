@@ -101,6 +101,22 @@ public class Analytics extends BaseTestTeacher {
     @FindBy (xpath = "//button[@class='report-format-item ']")
     WebElement pdfButton;
 
+    @FindBy (xpath = "//span[normalize-space()='.csv']")
+    List<WebElement> downloadRawReports;
+
+    @FindBy (xpath = "//span[normalize-space()='.pdf']")
+    List<WebElement> downloadPdfReports;
+
+    public void downloadPdfReports () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(downloadPdfReports));
+        downloadPdfReports.get(0).click();
+    }
+
+    public void downloadRawReport () {
+        wdWait.until(ExpectedConditions.visibilityOfAllElements(downloadRawReports));
+        downloadRawReports.get(0).click();
+    }
+
     public void pdfButtonClick () {
         wdWait.until(ExpectedConditions.visibilityOf(pdfButton)).click();
     }

@@ -46,7 +46,15 @@ public class WebmailLoginPage extends BaseTestStudent {
     List<WebElement> emails;
 
 
+    @FindBy (xpath = "//p[contains(text(),'us_test_s2@we-deliver.net')]")
+    WebElement generatedPassword;
 
+
+    public String generatedPassword() {
+        wdWait.until(ExpectedConditions.visibilityOf(generatedPassword));
+        return generatedPassword.getText().split(": ")[2];
+
+    }
 
 
     public void emailsClickFirst () {
