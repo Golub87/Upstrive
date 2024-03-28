@@ -71,6 +71,41 @@ public class TestStudent extends BaseTestStudent {
     }
 
     @Test (priority = 2)
+    public void studentS2LoginAndLogoutAfterGeneratedPassword () throws InterruptedException {
+        loginStudentPage.emailSendKeys("us_test_s2@we-deliver.net");
+        //loginStudentPage.passwordSendKeys("Golub1987!");
+        //loginStudentPage.loginButtonClick();
+        ((JavascriptExecutor) driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://webmail.we-deliver.net/");
+        webmailLoginPage.emailSendKeys("us_test_s2@we-deliver.net");
+        webmailLoginPage.passwordSendKeys("(v=IlNv.J{3;");
+        webmailLoginPage.loginButtonClick();
+        Thread.sleep(50000);
+        driver.navigate().refresh();
+        Thread.sleep(10000);
+        driver.navigate().refresh();
+        webmailLoginPage.emailsClickFirst();
+        driver.switchTo().frame("messagecontframe");
+        String token2 = webmailLoginPage.generatedPassword();
+        System.out.println(webmailLoginPage.generatedPassword());
+        driver.switchTo().defaultContent();
+        driver.switchTo().window(tabs.get(0));
+        loginStudentPage.generatedPasswordInput(token2);
+        loginStudentPage.loginButtonClick();
+        Thread.sleep(2000);
+        loginStudentPage.newPasswordSendKeys();
+        loginStudentPage.repeatNewPasswordSendKeys();
+        loginStudentPage.submitNewPasswordClick();
+        Thread.sleep(2000);
+        String dashboardPage = driver.getCurrentUrl();
+        String expectedUrl = "https://student-staging.upstrivesystem.com/home";
+        Assert.assertEquals(dashboardPage, expectedUrl);
+
+
+    }
+    @Test (priority = 3)
     public void requestNewPassword () throws InterruptedException {
         loginStudentPage.requestNewPasswordClick();
         loginStudentPage.emailForgotPasswordSendKeys("us_test_s2@we-deliver.net");
@@ -105,7 +140,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 3)
+    @Test (priority = 4)
     public void showPassword () {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -115,7 +150,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 4)
+    @Test (priority = 5)
     public void studentS1EmotionAngry() throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -165,7 +200,7 @@ public class TestStudent extends BaseTestStudent {
 
 
 
-    @Test (priority = 5)
+    @Test (priority = 6)
     public void studentNikolaGolubovicEmotionHappy() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -192,7 +227,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 6)
+    @Test (priority = 7)
     public void studentMilenaNastasovicEmotionEstatic() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+1@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -219,7 +254,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 7)
+    @Test (priority = 8)
     public void studentAnaPetrovicEmotionCalm() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+4@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -246,7 +281,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 8)
+    @Test (priority = 9)
     public void studentMarkoNikolicEmotionHappy() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+2@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -271,7 +306,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 9)
+    @Test (priority = 10)
     public void studentNemanjaPetrovicEmotionWorried() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+3@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -301,7 +336,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 10)
+    @Test (priority = 11)
     public void studentDejanGajinEmotionGood() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -332,7 +367,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 11)
+    @Test (priority = 12)
     public void studentMilosMazalicaEmotionSad() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+6@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -363,7 +398,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 12)
+    @Test (priority = 13)
     public void studentNebojsaSpasojevicEmotionStressed() throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+7@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -396,7 +431,7 @@ public class TestStudent extends BaseTestStudent {
 
 
 
-    @Test (priority = 13)
+    @Test (priority = 14)
     public void studentS1SendMessage() throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -418,7 +453,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 14, enabled = false)
+    @Test (priority = 15, enabled = false)
     public void answerNewTrend () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -442,7 +477,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 15)
+    @Test (priority = 16)
     public void answerSurveyS1() throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -466,7 +501,7 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
-    @Test (priority = 16)
+    @Test (priority = 17)
     public void answerQuestionS1() throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -488,7 +523,7 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
-    @Test (priority = 17)
+    @Test (priority = 18)
     public void answerPollS1 () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -512,7 +547,7 @@ public class TestStudent extends BaseTestStudent {
 
 
 
-    @Test (priority = 18)
+    @Test (priority = 19)
     public void changeSecurityKey () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -533,7 +568,7 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
-    @Test (priority = 19)
+    @Test (priority = 20)
     public void changePassword () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -556,7 +591,7 @@ public class TestStudent extends BaseTestStudent {
         Assert.assertEquals(actualUrl, expectedUrl);
     }
 
-    @Test (priority = 20)
+    @Test (priority = 21)
     public void howWasYourDay () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -593,7 +628,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 21, retryAnalyzer = Retry.class)
+    @Test (priority = 22, retryAnalyzer = Retry.class)
     public void deletePrivateNotes () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -628,7 +663,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 22)
+    @Test (priority = 23)
     public void checkLinkFeedPage () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -652,7 +687,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 23)
+    @Test (priority = 24)
     public void checkSearchFieldFeed () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -674,7 +709,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 24)
+    @Test (priority = 25)
     public void checkSearchFieldMessage() throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -695,7 +730,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 25)
+    @Test (priority = 26)
     public void checkLinkSolutions () throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -720,7 +755,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 26)
+    @Test (priority = 27)
     public void checkSearchInMyselfInSolutions () throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -741,7 +776,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 27)
+    @Test (priority = 28)
     public void checkLinksInSolutions() throws InterruptedException, IOException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -763,7 +798,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 28)
+    @Test (priority = 29)
     public void checkLinksInSolutionsMyself () throws InterruptedException, IOException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -788,7 +823,7 @@ public class TestStudent extends BaseTestStudent {
 
 
 
-    @Test (priority = 29)
+    @Test (priority = 30)
     public void sendMessageFromSolutions () throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+5@gmail.com");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -814,7 +849,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 30)
+    @Test (priority = 31)
     public void answerSurveyReadyToGo () throws InterruptedException {
         loginStudentPage.emailSendKeys("us_test_s1@we-deliver.net");
         loginStudentPage.passwordSendKeys("Golub1987!");
@@ -839,7 +874,7 @@ public class TestStudent extends BaseTestStudent {
 
     }
 
-    @Test (priority = 31)
+    @Test (priority = 32)
     public void studentMayerLoginAndLogout () throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+102@gmail.com");
         loginStudentPage.passwordSendKeys("123");
@@ -858,7 +893,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 32)
+    @Test (priority = 33)
     public void studentDuleRadovicLoginAndLogout () throws InterruptedException {
         loginStudentPage.emailSendKeys("nikola87.golubovic+103@gmail.com");
         loginStudentPage.passwordSendKeys("123");
@@ -881,41 +916,7 @@ public class TestStudent extends BaseTestStudent {
     }
 
 
-    @Test (priority = 32)
-    public void studentS2LoginAndLogoutAfterGeneratedPassword () throws InterruptedException {
-        loginStudentPage.emailSendKeys("us_test_s2@we-deliver.net");
-        //loginStudentPage.passwordSendKeys("Golub1987!");
-        //loginStudentPage.loginButtonClick();
-        ((JavascriptExecutor) driver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        driver.get("https://webmail.we-deliver.net/");
-        webmailLoginPage.emailSendKeys("us_test_s2@we-deliver.net");
-        webmailLoginPage.passwordSendKeys("(v=IlNv.J{3;");
-        webmailLoginPage.loginButtonClick();
-        Thread.sleep(50000);
-        driver.navigate().refresh();
-        Thread.sleep(10000);
-        driver.navigate().refresh();
-        webmailLoginPage.emailsClickFirst();
-        driver.switchTo().frame("messagecontframe");
-        String token2 = webmailLoginPage.generatedPassword();
-        System.out.println(webmailLoginPage.generatedPassword());
-        driver.switchTo().defaultContent();
-        driver.switchTo().window(tabs.get(0));
-        loginStudentPage.generatedPasswordInput(token2);
-        loginStudentPage.loginButtonClick();
-        Thread.sleep(2000);
-        loginStudentPage.newPasswordSendKeys();
-        loginStudentPage.repeatNewPasswordSendKeys();
-        loginStudentPage.submitNewPasswordClick();
-        Thread.sleep(2000);
-        String dashboardPage = driver.getCurrentUrl();
-        String expectedUrl = "https://student-staging.upstrivesystem.com/home";
-        Assert.assertEquals(dashboardPage, expectedUrl);
 
-
-    }
 
 
 
